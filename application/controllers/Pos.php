@@ -54,9 +54,6 @@ public function psnsale(){
    	   $data['approved'] = "2";
    	   $data['in'] = "2";
    	   $data['out'] = "3";
-	   $data['waitingcollection'] = "12";
-   	   $data['approvedcollection'] = "2";
-  	   $data['rejectedcollection'] = "2";
 	   $data['content'] = 'admin/pos/pesananpenjualan';
        $this->load->view('admin/include/template', $data);	
 	}
@@ -168,6 +165,34 @@ public function psnsale(){
 	     }
 	 }  
 }
+
+function _lastitembarang(){
+	$barang = $this->db->order_by('barang_tgl_input',"desc")->limit(1)->get('tbl_barang')->row();
+	$lastitem = explode('BR', $barang->barang_id);
+	$barang = sprintf("%'.06d",$lastitem[1]+1);
+	return $barang;
+}
+
+
+function masteritem(){
+	$data['menu'] = $this->Master_model->get_group_menu();
+	   foreach ($data['menu'] as $value) {
+	    	  $data['items'][$value->id_menu_katagori] = $this->Master_model->getmenu($value->id_menu_katagori);
+	   }
+
+	$data['waiting'] = "1";
+   	$data['approved'] = "2";
+   	$data['in'] = "2";
+   	$data['out'] = "3";
+   	$data['katagori'] = $this->M_barang->get_katagori();
+   	$data['satuan'] = $this->M_barang->get_satuan();
+   	$data['masteritem'] = $this->M_barang->tampil_barang();
+   	$data['lastitem'] = 'BR'.$this->_lastitembarang();
+	$data['content'] = 'admin/master/masteritem';
+    $this->load->view('admin/include/template', $data);
+}
+
+
 
 
 

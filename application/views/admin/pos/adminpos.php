@@ -6,8 +6,9 @@
               padding: 5px;
 
           }
-  .pos-card-menu { border-radius:5px; background-color: #d7dfde !important;}
+  /*.pos-card-menu { border-radius:5px; background-color: #d7dfde !important;}
 
+*/
 </style>
 <?php 
     

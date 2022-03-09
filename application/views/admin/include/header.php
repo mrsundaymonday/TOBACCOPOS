@@ -107,7 +107,7 @@
       }
       
       .pdf-eo { color: #3b68d2 !important; }
-      .btn {padding: 0.75rem .5rem !important;}
+      .btn {padding: 0.5rem .5rem !important;}
 
       .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link {
         padding-top: 0.25rem !important;
